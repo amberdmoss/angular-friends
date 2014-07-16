@@ -1,4 +1,4 @@
-<html>
+<html ng-app='friendsApp'>
 <head>
 <script src='http://code.jquery.com/jquery-1.10.2.js' type='text/javascript'></script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -16,9 +16,9 @@
 <title>Facebook Lesson 18</title>
 </head>
 
-<body>
+<body ng-controller='FriendController'>
 
-<h1>The <strong>facebook</strong> Friend Machine</h1>
+<h1>The <strong>facebook</strong> Friend Machine {{ test }}</h1>
 
 <div class="friends">
 
@@ -47,6 +47,20 @@
 </form>
 
   <ul>
+      <li class='friend' ng-repeat="people in friends">
+       <img class="profile-pic" src={{people.pic_square}}>
+      <h3>{{people.name}}</h3>
+      <div class="location">
+        Location:{{people.current_location.name}}, {{people.current.location.country}}
+      </div>      
+      <div class="status">
+        Status: {{people.status.message}}
+      </div>      
+      <div class="num-friends">
+        Friends: {{people.friend_count}}
+      </div>
+    </li>
+
     <li class='friend'>
        <img class="profile-pic" src='https://scontent-a.xx.fbcdn.net/hprofile-ash3/833_10200838803828124_1233160321_a.jpg'>
       <h3>Cali Fornia</h3>
